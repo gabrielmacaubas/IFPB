@@ -1,0 +1,19 @@
+/* @font-face {
+    font-family: Lobster;
+    src: url(../fonts/Lobster-Regular.ttf);
+} */
+
+@font-face {
+    font-family: Kufam;
+    src: url(../fonts/Kufam-VariableFont_wght.ttf);
+}
+
+h1 {
+    font-family: Lobster, cursive;
+    font-variation-settings: 'wght' 850;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+}

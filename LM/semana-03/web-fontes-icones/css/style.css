@@ -1,0 +1,12 @@
+@font-face{
+    font-family: 'Roboto Slab2';
+    src: url(../fonts/RobotoSlab-VariableFont_wght.ttf);
+}
+
+h1{
+    font-family: 'Roboto Slab 2', serif;
+}
+
+img{
+    width: 20px;
+}

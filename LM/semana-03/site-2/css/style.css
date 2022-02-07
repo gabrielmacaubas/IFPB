@@ -1,0 +1,126 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Audiowide';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/audiowide/v9/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Audiowide';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/audiowide/v9/l7gdbjpo0cum0ckerWCdlg_O.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+body {
+  color: darkslategrey;
+  font-family: arial, sans-serif;
+  font-size: 17px;
+}
+
+
+h1 {
+  font-size:30px;
+  font-family: Audiowide, cursive;
+
+}
+
+h1 a, h1 a:visited {
+  color: white;
+}
+
+h2 {
+  font-size:24px;
+  background-color: lightskyblue;
+  border-radius: 5px;
+}
+
+h1, h2, a, a:visited {
+  color: darkblue;
+}
+
+h2 a, h2 a:visited {
+  color: lightskyblue;
+}
+
+h1:hover a, h2:hover a {
+  color: darkblue;
+}
+
+#icone, p {
+  line-height: 1.5rem;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+#copyright {
+  font-weight: bold;
+  font-style: italic;
+}
+
+#icone {
+  font-size: 1rem;
+
+}
+
+#social {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.btn {
+  font-size: 1.3rem;
+}
+
+.btn:hover{
+  color: white;
+  background-color: darkblue;
+  text-decoration: none;
+}
+
+.fa-facebook-square, .fa-linkedin {
+  color: navy;
+}
+
+.fa-twitter-square {
+  color: dodgerblue;
+}
+
+
+@media print{
+
+  body, h1 {
+    color: black;
+    font-family: Times, serif;
+  }
+
+  h1#elon {
+    text-align: left;
+  }
+
+  h2 {
+    background-color: unset;
+  }
+
+  h2 a, .topo {
+    color: white;
+  }
+
+}
