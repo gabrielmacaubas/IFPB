@@ -9,3 +9,6 @@ class Retangulo:
 
 rect = Retangulo(1.34, 5.2)
 print(rect.calcula_area())
+print(rect.base)
+print(rect.altura)
+print(rect)
