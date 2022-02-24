@@ -1,22 +1,39 @@
 from calculadora import Calculadora
 
-print(f"+--------------+\n|         ")
-ope = str(input("Operação: "))
-val = float(input("Valor: "))
-calc = Calculadora(ope, val)
-
-print(f"\nOperação ==> {calc.operacao} e Valor ==> {calc.valor}\n")
+calc = Calculadora()
+continuar = "S"
 
 while True:
-    continuar = str(input("Deseja continuar (S/N) ")).upper()
+    print(f"""+{'-'*14}+
+|{calc.registrador[1]:>14.2f}|
++{'-'*14}+
+(+) somar
+(-) subtrair
+(/) dividir
+(*) multiplicar
+(r) resetar
+(d) desfazer
+{'-'*15}""")
 
-    print("========================")
+    calc.operacao = str(input("Operação: ")).lower()
 
-    if continuar == "S":
-        calc.operacao = str(input("\nOperação: "))
+    if calc.operacao != "r" and calc.operacao != "d":
         calc.valor = float(input("Valor: "))
+        calc.calcular()
 
-        print(f"\noperação ==> {calc.operacao} e valor ==> {calc.valor}\n")
+    else:
+        calc.calcular()
 
-    elif continuar == "N":
+    print(f"""+{'-' * 14}+
+|{calc.registrador[1]:>14.2f}|
++{'-' * 14}+""")
+
+    continuar = str(input("\nDeseja continuar (S/N) ")).upper()
+
+    print(f"{'='*30}\n")
+
+    if continuar != "S":
+
         break
+
+print("Calculadora encerrada!")
