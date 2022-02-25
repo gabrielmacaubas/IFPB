@@ -1,7 +1,6 @@
 from Bomba import *
 
 # programa principal
-print(info())
 b1 = BombaDeCombustivel(6.50, 5.20)
 print(b1.preço_gasolina)
 print(b1.__dict__)
@@ -19,5 +18,3 @@ print(visor_alcool)
 
 visor_gasolina = Visor(5.20, 'GASOLINA')
 print(visor_gasolina)
-
-

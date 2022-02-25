@@ -36,8 +36,8 @@ class BombaDeCombustivel:
     def zerarBomba(self, tipo_combustivel):
         if tipo_combustivel == BombaDeCombustivel.GASOLINA:
             self.visor_gasolina.reset()
-        # elif tipo_combustivel
-
+        elif tipo_combustivel == BombaDeCombustivel.ALCOOL:
+            self.visor_alcool.reset()
 
 
     def alterarPreçoGasolina(self, novoPreço:float):
@@ -56,13 +56,4 @@ class BombaDeCombustivel:
 
     def desligar(self):
         self.ligada = False
-
-    def info(self):
-        return 'Bomba de Combustivel'
-
-
-
-
-
-
-
+        
