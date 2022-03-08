@@ -10,4 +10,3 @@ class Data:
 
     #@property
     #def dia(self):
-        
