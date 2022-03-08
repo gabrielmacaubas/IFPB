@@ -8,13 +8,15 @@ const numbersMatrix = [
 //console.log(numbers[0]);
 //console.log(numbersMatrix[2][2]);
 
-numbers[9] = 10;
+// numbers[8] = 90;
+
+numbers.unshift(0);
+
+numbers[10] = 10;
 numbers[numbers.length] = 11;
 numbers.push(12);
-// numbers[8] = 90;
-// console.log(numbers);
 
-// console.log(numbersMatrix);
+// console.log(numbers);
 
 // numbers index (0) is 0
 // ...
