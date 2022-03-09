@@ -1,19 +1,34 @@
 
 class Personagem:
+    MAGO = 1
+    TANK = 2
+    GUERREIRO = 3
+    SUPORTE = 4
 
-    def __init__(self, nome: str):
+    def __init__(self, nome: str, 
+                tipo: int = GUERREIRO):
         self.nome = nome
         self.vida = 100
         self.stamina = 100
-        self.vivo = "Vivo"
+        self.tipo = tipo
     
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Personagem("{self.nome}")'
     
     def atacar(self, outro_personagem):
         self.perder_stamina(10)
-        outro_personagem.sofrer_ataque(forca=15)
+        forca = self._get_dano_terceiros()
+        outro_personagem.sofrer_ataque(forca)
     
+    def _get_dano_terceiros(self):
+        tabela_dano = {
+            Personagem.MAGO: 2,
+            Personagem.SUPORTE: 1,
+            Personagem.GUERREIRO: 15,
+            Personagem.TANK: 10
+        }
+        return tabela_dano[self.tipo]
+
     def sofrer_ataque(self, forca):
         self.modificar_vida(-forca)
 
@@ -26,10 +41,9 @@ class Personagem:
         elif self.vida + quantidade < 0:
             self.vida = 0
         else: self.vida += quantidade 
-        self.estah_vivo()
 
     def estah_vivo(self):
         if self.vida > 0:
-            self.vivo = "Vivo"
+            return "Vivo"
         else:
-            self.vivo = "Morto"
+            return "Morto"
