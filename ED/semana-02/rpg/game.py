@@ -1,3 +1,5 @@
+class SuporteNaoDaDano(Exception):
+    pass
 
 class Personagem:
     MAGO = 1
@@ -16,6 +18,9 @@ class Personagem:
         return f'Personagem("{self.nome}")'
     
     def atacar(self, outro_personagem):
+        if self.tipo == Personagem.SUPORTE:
+            raise SuporteNaoDaDano("Suporte não dá dano")
+
         self.perder_stamina(10)
         forca = self._get_dano_terceiros()
         outro_personagem.sofrer_ataque(forca)
