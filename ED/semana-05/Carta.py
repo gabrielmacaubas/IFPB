@@ -1,16 +1,16 @@
 class Carta:
 
         def __init__(self, numero, naipe, cor):
-            self.numero = numero
-            self.naipe = naipe
-            self.cor = cor
-        
+            self.__numero = numero
+            self.__naipe = naipe
 
-        def getNaipe(self):
-            return self.Naipe
+        @property
+        def naipe(self):
+            return self.__naipe
 
-        def mostrarCor(self):
-            return self.cor
+        @property 
+        def numero(self):
+            return self.__numero
 
         def __str__(self): # todas as infromacoes da carta
-            return f'{self.numero}'
+            return f'{self.__numero} de {self.__naipe}'
