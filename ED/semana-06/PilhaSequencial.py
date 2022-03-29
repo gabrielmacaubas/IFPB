@@ -36,10 +36,9 @@ class PilhaSequencial:
 if __name__ == '__main__':
     p = PilhaSequencial()
 
-    for i in range(1,6):
-        p.inserir(i * 10)
+    try:
+        p.remover()
+    except PilhaException as pe:
+        print(pe)
 
-    print(p)
-
-    p.remover()
     print(p)
