@@ -31,6 +31,7 @@ class Data:
     def ano(self, a):
         self.__ano = a
 
+
 # Programa Principal
 data = Data()
 data.dia = 8

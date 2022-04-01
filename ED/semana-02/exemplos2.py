@@ -1,6 +1,6 @@
 class Retangulo:
     def __init__(self, b, a):
-        self.base  = b
+        self.base = b
         self.altura = a
 
     def calcula_area(self):

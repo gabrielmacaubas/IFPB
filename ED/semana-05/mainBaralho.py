@@ -6,7 +6,7 @@ print(baralho)
 print(len(baralho))
 
 print('\nRetirando as cartas')
-while(True):
+while (True):
     try:
         c = baralho.retirarCarta()
         print('Carta:', c, ' Baralho: ', len(baralho))

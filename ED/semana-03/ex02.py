@@ -1,6 +1,5 @@
 class Aluno:
-    def __init__(self, m:int, nom:str):
-
+    def __init__(self, m: int, nom: str):
         self.matricula = m
         self.nome = nom
         self.notas = list()
@@ -14,12 +13,10 @@ class Aluno:
     def media(self):
         return sum(self.notas) / len(self.notas)
 
-    def set_nome(self, n:str):
-
+    def set_nome(self, n: str):
         self.nome = n
 
-    def adiciona_nota(self, nota:str):
-
+    def adiciona_nota(self, nota: str):
         self.notas.append(nota)
 
 

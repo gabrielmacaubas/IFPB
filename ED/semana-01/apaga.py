@@ -6,7 +6,8 @@ class BombaCombustivel:
         self.preço_alcool = 0
 
     def teste(self):
-        print('Teste',self.frentista)
+        print('Teste', self.frentista)
+
 
 # programa principal
 b1 = BombaCombustivel('Alex')

@@ -2,6 +2,7 @@ class ContaBloqueadaException(Exception):
     def __init__(self, msg):
         super().__init__(msg)
 
+
 class Conta:
     # construtor parametrizado da classe
     def __init__(self, agencia, conta):
@@ -26,10 +27,10 @@ class Conta:
             soma += int(d)
         return soma % 11
 
-    
     def __str__(self):
         return f'Conta {self.conta}-{self.digito}, Agencia: {self.agencia}, Saldo: {self.saldo}'
-    
+
+
 if __name__ == '__main__':
     c1 = Conta('1010', '4561')
     print(c1)

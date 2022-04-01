@@ -9,7 +9,7 @@ class Visor:
         self.quant_litros = 0.0
         self.valor_a_pagar = 0.0
 
-    def __str__(self): # método quq exige que uma string seja retornada
+    def __str__(self):  # método quq exige que uma string seja retornada
         return f'''
     Combustivel: {self.nome_combustivel}
     Preço: {self.preço_combustivel} 
@@ -18,11 +18,11 @@ class Visor:
     '''
 
 
-
 class BombaDeCombustivel:
-    ALCOOL = 1   # Propriedade de Classe
-    GASOLINA = 2 # Propriedade de Classe
-    def __init__(self, preço_da_gasolina:float, preço_do_alcool:float):
+    ALCOOL = 1  # Propriedade de Classe
+    GASOLINA = 2  # Propriedade de Classe
+
+    def __init__(self, preço_da_gasolina: float, preço_do_alcool: float):
         self.preço_gasolina = preço_da_gasolina
         self.preço_alcool = preço_do_alcool
         self.ligada = True
@@ -39,12 +39,11 @@ class BombaDeCombustivel:
         elif tipo_combustivel == BombaDeCombustivel.ALCOOL:
             self.visor_alcool.reset()
 
-
-    def alterarPreçoGasolina(self, novoPreço:float):
+    def alterarPreçoGasolina(self, novoPreço: float):
         if novoPreço > 0:
             self.preço_gasolina = novoPreço
 
-    def alterarPreçoAlcool(self, novoPreço:float):
+    def alterarPreçoAlcool(self, novoPreço: float):
         if novoPreço > 0:
             self.preço_alcool = novoPreço
 
@@ -56,4 +55,3 @@ class BombaDeCombustivel:
 
     def desligar(self):
         self.ligada = False
-        

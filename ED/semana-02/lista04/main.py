@@ -4,16 +4,16 @@ calc = Calculadora()
 continuar = "S"
 
 while True:
-    print(f"""+{'-'*14}+
+    print(f"""+{'-' * 14}+
 |{calc.registrador[1]:>14.2f}|
-+{'-'*14}+
++{'-' * 14}+
 (+) somar
 (-) subtrair
 (/) dividir
 (*) multiplicar
 (r) resetar
 (d) desfazer
-{'-'*15}""")
+{'-' * 15}""")
 
     calc.operacao = str(input("Operação: ")).lower()
 
@@ -30,10 +30,9 @@ while True:
 
     continuar = str(input("\nDeseja continuar (S/N) ")).upper()
 
-    print(f"{'='*30}\n")
+    print(f"{'=' * 30}\n")
 
     if continuar != "S":
-
         break
 
 print("Calculadora encerrada!")

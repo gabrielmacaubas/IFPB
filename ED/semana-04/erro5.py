@@ -1,8 +1,7 @@
-
 def dividir(a, b):
     if b == 0:
         raise Exception("impossivel dividir")
-    return a/b
+    return a / b
 
 
 def fproblema(var):
@@ -13,6 +12,5 @@ try:
     fproblema(4)
 except ArithmeticError:
     print('Erro na divisão')
-
 
 print('Fim do Programa')

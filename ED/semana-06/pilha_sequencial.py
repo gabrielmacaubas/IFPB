@@ -4,6 +4,7 @@
 class PilhaException(Exception):
     pass
 
+
 class Pilha:
 
     def __init__(self, tamanho: int):
@@ -17,7 +18,7 @@ class Pilha:
             self.__quantidade += 1
         except IndexError:
             raise PilhaException("pilha cheia")
-    
+
     def desempilha(self):
         if self.estah_vazia():
             raise PilhaException("pilha vazia")
@@ -26,7 +27,6 @@ class Pilha:
         self.__quantidade -= 1
         print(self.__dados)
         return valor
-        
 
     def obter_tamanho(self):
         return self.__tamanho
@@ -39,4 +39,3 @@ class Pilha:
 
     def estah_cheia(self):
         return self.obter_quantidade() == self.__tamanho
-

@@ -1,4 +1,4 @@
-valores = [4, 5, 3, 6, 10] # 5 elementos
+valores = [4, 5, 3, 6, 10]  # 5 elementos
 
 while True:
     index = int(input('Índice do array:'))

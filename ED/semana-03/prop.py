@@ -2,7 +2,7 @@ class Relogio:
 
     def __init__(self, seg):
         self.seg = seg
-    
+
     @property
     def minutos(self):
         print('obtendo valor')
@@ -21,5 +21,3 @@ class Relogio:
     def horas(self, valor):
         print('cascata')
         self.minutos = valor * 60
-
-
