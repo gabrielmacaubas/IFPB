@@ -17,6 +17,7 @@ def pega_dados():
     while True:
         nova_parte = input()
         texto += nova_parte.replace('\n', '')
+        time.sleep(0)
 
 
 def calcula_letras():
@@ -27,7 +28,6 @@ def calcula_letras():
             print('Texto: [', texto, ']')
             print('#caracteres:', len(texto), '\n')
             tamanho_anterior = len(texto)
-            tamanho_anterior = len(texto)
         time.sleep(0)
 
 
@@ -36,10 +36,8 @@ def salda_dados():
     global nova_parte
     global tamanho_anterior
     while True:
-        if len(texto) > tamanho_anterior:
-            with open('arq_temp.txt', 'a') as f:
-                f.write(f'\n{nova_parte}')
-                tamanho_anterior = len(texto)
+        with open('arq_temp.txt', 'a') as f:
+            f.write(f'\n{nova_parte}')
         time.sleep(0)
 
 
