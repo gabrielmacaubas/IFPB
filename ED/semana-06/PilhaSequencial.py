@@ -6,39 +6,40 @@ class PilhaException(Exception):
 class PilhaSequencial:
     def __init__(self):
         self.__pilhas = [
-            [1],
+            [],
         ]
         self.__pilha_atual = int()
         self.__interface = ''
         self.__opcao = str()
 
     def mudar_opcao(self):
-        self.__opcao = input("Digite sua opção: ")
+        self.__opcao = str(input("Digite sua opção: "))
         if self.__opcao.lower() == "e":
+            self.inserir(input("Insira um dado: "))
+
+        elif self.__opcao.lower() == "d":
             ...
-        if self.__opcao.lower() == "d":
+        elif self.__opcao.lower() == "t":
             ...
-        if self.__opcao.lower() == "t":
+        elif self.__opcao.lower() == "o":
             ...
-        if self.__opcao.lower() == "o":
+        elif self.__opcao.lower() == "v":
             ...
-        if self.__opcao.lower() == "v":
+        elif self.__opcao.lower() == "r":
             ...
-        if self.__opcao.lower() == "r":
+        elif self.__opcao.lower() == "n":
             ...
-        if self.__opcao.lower() == "n":
+        elif self.__opcao.lower() == "z":
             ...
-        if self.__opcao.lower() == "z":
+        elif self.__opcao.lower() == "c":
             ...
-        if self.__opcao.lower() == "c":
+        elif self.__opcao.lower() == "m":
             ...
-        if self.__opcao.lower() == "m":
-            ...
-        if self.__opcao.lower() == "n":
-            ...
-        if self.__opcao.lower() == "s":
+        elif self.__opcao.lower() == "n":
             ...
 
+        else: # sair
+            ...
 
 
     def vazia(self):
@@ -51,12 +52,13 @@ class PilhaSequencial:
         return len(self.__pilhas)
 
     def topo(self):
+        if self.tamanho_pilha() == 0:
+            return '_'
 
-        return self.__pilhas[0][0]
-
+        return self.__pilhas[self.__pilha_atual][0]
 
     def inserir(self, dado):
-        self.__pilhas[0].insert(0, dado)
+        self.__pilhas[self.__pilha_atual].insert(0, dado)
 
     def remover(self):
         return self.__pilhas.pop(0)
@@ -91,7 +93,7 @@ class PilhaSequencial:
         return self.__interface
 
     def imprimir(self):
-        print(self.__str__())
+        print(self.__pilhas)
 
 
 if __name__ == '__main__':
