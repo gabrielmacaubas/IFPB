@@ -1,47 +1,55 @@
 # Baralho = coleçao de cartas (lista de cartas)
 from Carta import Carta
+from PilhaEncadeada import Pilha
+from random import sample
+
 
 class BaralhoException(Exception):
     def __init__(self, msg):
         super().__init__(msg)
 
+
 class Baralho:
     def __init__(self):
         self.baralho = list()
+        self.__novo_baralho = None
+
         naipe = ["Ouro",    "Espada","Paus","Copas"]
-        cor =   ["vermelho","preto", "preto","vermelho"]
         numeracao = ["As","2","3","4","5","6","7","8","9","10","valete","dama","rei"]
+
 
         for idx in range(len(naipe)):
             for id in numeracao:
-                self.baralho.append( Carta(id, naipe[idx], cor[idx] ))
-    
+                self.baralho.append(Carta(id, naipe[idx]))
 
     def __len__(self):
-        return len(self.baralho)
+        return self.__novo_baralho.tamanho()
 
     def temCarta(self):
-        if len(self.baralho) > 0:
+        if not self.__novo_baralho.estaVazia():
             return True
-        else:
-            return False
+
+        return False
     
     def retirarCarta(self)->Carta:
-        try:
-            return self.baralho.pop()
-        except IndexError :
-            raise BaralhoException('O baralho está vazio. Não há cartas para retirar')
-            
+        return self.__novo_baralho.desempilha()
+
     def embaralhar(self):
-        #implementar
-        pass
+        baralho_embaralhado = sample(self.baralho, 52)
 
-    def __str__(self):
-        saida = ''
-        for carta in self.baralho:
-            saida += carta.__str__() + '\n' 
-        return saida
+        self.__novo_baralho = Pilha()
+        self.__novo_baralho.empilhaSerie(baralho_embaralhado)
 
+    def imprime(self):
+        print(self.__novo_baralho)
 
 
-
+if __name__ == "__main__":
+    b = Baralho()
+    b.embaralhar()
+    b.imprime()
+    print("tem carta?", b.temCarta())
+    for i in range(48):
+        print(f'{b.retirarCarta()} foi desempilhado!')
+    print("tem carta?", b.temCarta())
+    b.imprime()

@@ -3,6 +3,7 @@ class PilhaException(Exception):
         super().__init__(mensagem)
         self.metodo = metodo
 
+
 class Node:
     def __init__(self, dado):
         self.dado = dado
@@ -26,7 +27,6 @@ class Pilha:
     def __init__(self):
         self.__head = None
         self.__tamanho = 0
-        
 
     def estaVazia(self):
         return self.__head == None
@@ -65,13 +65,15 @@ class Pilha:
 
         raise PilhaException(f'Valor {valor} nao esta na pilha','busca()')
         
+    def empilhaSerie(self, lista):
+        for i in lista:
+            self.empilha(i)
 
     def empilha(self, valor):
         novo = Node(valor)
         novo.prox = self.__head
         self.__head = novo
         self.__tamanho += 1
-
 
     def desempilha(self):
         if not self.estaVazia():
@@ -80,7 +82,6 @@ class Pilha:
             self.__tamanho -= 1
             return dado
         raise PilhaException('A pilha está vazia')
-   
 
     def imprime(self):
         print(self.__str__())
@@ -99,22 +100,3 @@ class Pilha:
 
         s += ']'
         return s
-
- 
-
-# Programa para testar
-if __name__ == '__main__':
-    p = Pilha()
-    p.empilha(10)
-    p.empilha(20)
-    p.empilha(30)
-    p.empilha(40)
-    print('Tamanho:',p.tamanho())
-    print(p)
-
-    #esvaziando
-    while( not p.estaVazia()):
-        print(p.desempilha())
-        p.imprime()
-    
-
