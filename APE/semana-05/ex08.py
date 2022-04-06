@@ -19,5 +19,7 @@ elif operador == "/":
     resultado = operando_1 / operando_2
 elif operador == "%":
     resultado = operando_1 % operando_2
+else:
+    print("Operação Inválida!")
 
 print(resultado)
