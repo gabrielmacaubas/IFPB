@@ -2,7 +2,7 @@ numero = int(input("Digite um numero de 1 a 7 correspondente a um dia da semana:
 dia = str()
 dia_tipo = str()
 
-if numero > 1 and numero < 7:
+if 1 < numero < 7:
     dia_tipo = "dia util"
 
     if numero == 2:
