@@ -16,20 +16,32 @@ class Pilha:
 
     def mudarOpcao(self):
         self.opcao = str(input("Digite sua opção: "))
+
         if self.opcao.lower() == "e":
             self.empilha(input("Insira um dado: "))
+            return f"O dado {self.topo()} foi empilhado!"
 
         elif self.opcao.lower() == "d":
-            print(f"O elemento: {self.desempilha()} foi desempilhado")
+            return f"O elemento: {self.desempilha()} foi desempilhado!"
 
         elif self.opcao.lower() == "t":
-            ...
+            return f"A pilha {self.pilha_atual + 1} -> {self.getPilha()} tem tamanho {self.tamanho()}!"
+            
         elif self.opcao.lower() == "o":
-            ...
+            return f"\033[1m[ {self.topo()} ] <- topo\033[m"
+             
         elif self.opcao.lower() == "v":
-            ...
+            if self.estaVazia():
+                return "A pilha está vazia!"
+
+            return f"A pilha não está vazia. Tem o tamanho {self.tamanho()}!"
+
         elif self.opcao.lower() == "r":
-            ...
+            self.getPilhas().append([])
+
+
+            return "Pilha criada com sucesso!"
+
         elif self.opcao.lower() == "n":
             ...
         elif self.opcao.lower() == "z":
@@ -37,7 +49,11 @@ class Pilha:
         elif self.opcao.lower() == "c":
             ...
         elif self.opcao.lower() == "m":
-            ...
+            pilha_escolhida = int(input("Pilha escolhida: "))
+            self.pilha_atual = pilha_escolhida - 1
+
+            return f"\033[1mPilha Selecionada: \033[34m{self.pilha_atual + 1}\033[m de {self.quantidadePilhas()}"
+
         elif self.opcao.lower() == "n":
             ...
 
@@ -54,6 +70,7 @@ class Pilha:
         return len(self.getPilhas())
 
     def elemento(self, posicao):
+
         try:
             assert posicao > 0
             return self.getPilha()[posicao - 1]
@@ -67,6 +84,7 @@ class Pilha:
             raise
 
     def busca(self, valor):
+
         try:
             return self.getPilha().index(valor) + 1
         except ValueError:
@@ -84,15 +102,13 @@ class Pilha:
         self.getPilha().append(valor)
 
     def desempilha(self):
+
         try:
             return self.getPilha().pop()
         except IndexError:
-            raise PilhaException(f'Pilha Vazia. Não é possível efetuar a remoção')
+            raise PilhaException(f'Pilha Vazia. Não é possível efetuar a remoção\n')
         except:
             raise
-
-    def imprimir(self):
-        print(self.__str__())
 
     def getPilhas(self):
         return self.__pilhas
@@ -100,32 +116,30 @@ class Pilha:
     def getPilha(self):
         return self.__pilhas[self.pilha_atual]
 
-    def __str__(self):
-        blue = '\033[34m'
-        red = '\033[31m'
-        bold = '\033[1m'
-        stop = '\033[m'
-        lines = '=' * 37
+    def imprimir(self):
+        print(self.__str__())
 
+    def __str__(self):
         self.interface = f'''
-{bold}Editor de Pilha v1.2{stop}
-{lines}
-{bold}Pilha Selecionada: {blue}{self.pilha_atual + 1}{stop} de {self.quantidadePilhas()}
-{bold}[ {self.topo()} ] <- topo{stop}
-{lines}
+\033[1mEditor de Pilha v1.2\033[m
+{'=' * 37}
+\033[1mPilha Selecionada: \033[34m{self.pilha_atual + 1}\033[m de {self.quantidadePilhas()}
+\033[1m[ {self.topo()} ] <- topo\033[m
+{'=' * 37}
 (e) Empilhar
 (d) Desempilhar
 (t) Tamanho
 (o) Obter elemento do topo
 (v) Teste de pilha vazia
-{red}(r) Criar nova pilha
+\033[31m(r) Criar nova pilha
 (n) Inverter os elementos da pilha
 (z) Esvaziar a pilha
-(c) Concatenar duas pilhas{stop}
+(c) Concatenar duas pilhas\033[m
 (m) Escolher outra pilha
-{red}(n) Conversão dec/bin
-{stop}(s) Sair
-{lines}'''
+\033[31m(n) Conversão dec/bin
+\033[mE(a) Atualizar interface
+(s) Sair
+{'=' * 37}'''
 
         return self.interface
 
@@ -133,10 +147,11 @@ class Pilha:
 if __name__ == '__main__':
     p = Pilha()
     p.imprimir()
-    while True:
-        try:
 
-            p.mudarOpcao()
+    while True:
+
+        try:
+            print(p.mudarOpcao())
             print()
         except PilhaException as pe:
             print(pe)
