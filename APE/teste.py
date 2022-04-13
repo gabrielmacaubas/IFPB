@@ -1,4 +1,6 @@
-nome = "gabriel"
-idade = 18
-print(f"meu nome é {nome}", end="...")
-print(f"e minha idade é {idade}")
+n = int(input('Digite um número: '))
+
+for i in range(0, 1, 1):
+    print(i)
+
+print('FIM')
