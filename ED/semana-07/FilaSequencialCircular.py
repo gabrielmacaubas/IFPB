@@ -171,18 +171,12 @@ class Fila:
 
     @classmethod
     def combina(cls, fres, f1, f2):
-        frente_f1 = f1.__frente
-        frente_f2 = f2.__frente
-
         for i in range(fres.__max):
             if i % 2 == 0:
-                fres.enfileirar(f1.__dado[frente_f1])
-                frente_f1 = (frente_f1 + 1) % f1.__max
+                fres.enfileirar(f1.desenfileirar())
 
             else:
-                fres.enfileirar(f2.__dado[frente_f2])
-                frente_f2 = (frente_f2 + 1) % f2.__max
-
+                fres.enfileirar(f2.desenfileirar())
 
     def printArray(self):
         print('[ ', end="")
