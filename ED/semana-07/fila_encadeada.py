@@ -30,7 +30,7 @@ class Fila:
         self.fim = no
         self.tamanho += 1
 
-    def desenfileirar(self) -> No:
+    def desenfileirar(self) -> int:
         if self.esta_vazia():
             raise FilaException('fila vazia')
 
@@ -38,4 +38,11 @@ class Fila:
         self.inicio = self.inicio.proximos
         self.tamanho -= 1
         return primeiro.valor
+
+    def imprimir(self):
+        no = self.inicio
+        while no:
+            print(f'{no.valor}, ', end='')
+            no = no.proximo
+        print()
 
