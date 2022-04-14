@@ -1,17 +1,19 @@
 class FilaException(Exception):
     pass
-    
+
+
 class No:
 
     def __init__(self, valor: int):
-        self.valor : int = valor
+        self.valor: int = valor
         self.proximo = None
+
 
 class Fila:
 
     def __init__(self):
-        self.inicio : No = None
-        self.fim : No = None
+        self.inicio: No = None
+        self.fim: No = None
         self.tamanho: int = 0
     
     def esta_vazia(self):
@@ -22,6 +24,7 @@ class Fila:
 
     def enfileirar(self, valor: int):
         no = No(valor)
+
         if self.esta_vazia():
             self.inicio = no
         else:
@@ -35,14 +38,18 @@ class Fila:
             raise FilaException('fila vazia')
 
         primeiro = self.inicio
-        self.inicio = self.inicio.proximos
+
+        self.inicio = self.inicio.proximo
         self.tamanho -= 1
+
         return primeiro.valor
 
     def imprimir(self):
         no = self.inicio
+
         while no:
             print(f'{no.valor}, ', end='')
             no = no.proximo
+            
         print()
 
