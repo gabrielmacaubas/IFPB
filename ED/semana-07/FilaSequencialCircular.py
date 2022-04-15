@@ -171,7 +171,7 @@ class Fila:
 
     @classmethod
     def combina(cls, fres, f1, f2):
-        for i in range(fres.__max):
+        for i in range(f1.tamanho() + f2.tamanho()):
             if i % 2 == 0:
                 fres.enfileirar(f1.desenfileirar())
 
@@ -215,24 +215,22 @@ if __name__ == "__main__":
     f1 = Fila(3)
     f2 = Fila(3)
 
-#try:
-    f1.enfileirar(2.1)
-    f1.enfileirar(4.5)
-    f1.enfileirar(1.0)
-    f2.enfileirar(7.2)
-    f2.enfileirar(3.1)
-    f2.enfileirar(9.8)
-    f1.imprimir()
-    f2.imprimir()
+    try:
+        f1.enfileirar(2.1)
+        f1.enfileirar(4.5)
+        f1.enfileirar(1.0)
+        f2.enfileirar(7.2)
+        f2.enfileirar(3.1)
+        f2.enfileirar(9.8)
+        f1.imprimir()
+        f2.imprimir()
 
-    fres = Fila(f1.tamanho() + f2.tamanho())
+        fres = Fila(f1.tamanho() + f2.tamanho())
 
-    Fila.combina(fres, f1, f2)
-    fres.printArray()
-
-"""    except FilaException as fe:
+        Fila.combina(fres, f1, f2)
+        fres.printArray()
+    except FilaException as fe:
         print(fe)
     except Exception as e:
         print('Classe: ', e.__class__.__name__)
         print('Nossos engenheiros vao analisar esse problema')
-"""
