@@ -15,50 +15,43 @@ class Pilha:
         self.opcao = str()
 
     def mudarOpcao(self):
-        self.opcao = str(input("Digite sua opção: "))
+        self.opcao = str(input("Digite sua opção: ")).lower()
 
-        if self.opcao.lower() == "e":
+        if self.opcao == "e":
             self.empilha(input("Insira um dado: "))
             return f"O dado {self.topo()} foi empilhado!"
 
-        elif self.opcao.lower() == "d":
-            return f"O elemento: {self.desempilha()} foi desempilhado!"
+        elif self.opcao == "d":
+            return f"O dado {self.desempilha()} foi desempilhado!"
 
-        elif self.opcao.lower() == "t":
+        elif self.opcao == "t":
             return f"A pilha {self.pilha_atual + 1} -> {self.getPilha()} tem tamanho {self.tamanho()}!"
             
-        elif self.opcao.lower() == "o":
+        elif self.opcao == "o":
             return f"\033[1m[ {self.topo()} ] <- topo\033[m"
              
-        elif self.opcao.lower() == "v":
+        elif self.opcao == "v":
             if self.estaVazia():
                 return "A pilha está vazia!"
 
             return f"A pilha não está vazia. Tem o tamanho {self.tamanho()}!"
 
-        elif self.opcao.lower() == "r":
+        elif self.opcao == "r":
             self.getPilhas().append([])
-
 
             return "Pilha criada com sucesso!"
 
-        elif self.opcao.lower() == "n":
-            ...
-        elif self.opcao.lower() == "z":
-            ...
-        elif self.opcao.lower() == "c":
-            ...
-        elif self.opcao.lower() == "m":
+        elif self.opcao == "m":
             pilha_escolhida = int(input("Pilha escolhida: "))
             self.pilha_atual = pilha_escolhida - 1
 
             return f"\033[1mPilha Selecionada: \033[34m{self.pilha_atual + 1}\033[m de {self.quantidadePilhas()}"
 
-        elif self.opcao.lower() == "n":
-            ...
+        elif self.opcao == "a":
+            self.imprimir()
 
-        else: # sair
-            ...
+        else:
+            return "Operação inválida"
 
     def estaVazia(self):
         return len(self.getPilhas()[self.pilha_atual]) == 0
@@ -151,11 +144,19 @@ if __name__ == '__main__':
     while True:
 
         try:
-            print(p.mudarOpcao())
-            print()
+            o = p.mudarOpcao()
+
+            if p.opcao == "s":
+                break
+
+            else:
+                print(o)
+                print()
         except PilhaException as pe:
             print(pe)
         except Exception as e:
             print('Nossos engenheiros vao analisar esse problema')
         except:
             print('FIM')
+
+print("Programa finalizado!")
