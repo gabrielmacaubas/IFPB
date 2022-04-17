@@ -193,9 +193,9 @@ class Lista:
             cursor = self.__head
             contador = 1
 
-            while( cursor!= None) and (contador < posicao)):
-                cursor = cursor.prox
-                contador += 1
+            #while( cursor!= None) and (contador < posicao)):
+                #cursor = cursor.prox
+                #contador += 1
             
             if( cursor != None):
                 cursor.dado = novoValor
