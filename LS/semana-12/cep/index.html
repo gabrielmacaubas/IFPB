@@ -36,11 +36,11 @@
         async function main() {
             const cep = await getCEP(cepInput.value);
             
-            rua.value = await cep.logradouro
-            numero.value = await cep.complemento
-            bairro.value = await cep.bairro
-            estado.value = await cep.uf
-            cidade.value = await cep.localidade
+            rua.value = cep.logradouro;
+            numero.value = cep.complemento;
+            bairro.value = cep.bairro;
+            estado.value = cep.uf;
+            cidade.value = cep.localidade;
 
         }
         
