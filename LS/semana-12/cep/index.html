@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Adress</h1>
+    <form>
+        <input type="text" placeholder="cep"><br>
+        <input type="text" placeholder="Rua"><br>
+        <input type="text" placeholder="Número"><br>
+        <input type="text" placeholder="Bairro"><br>
+        <input type="text" placeholder="Estado"><br>
+        <input type="text" placeholder="Cidade"><br>
+    </form>
+
+    <script>
+        async function getCEP(cep) {
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            const result = await (await fetch(url)).json();
+
+            return result;
+        }
+        
+        async function main() {
+            const cep = await getCEP('58015435');
+            
+
+            console.log(cep.localidade);
+        }
+
+        main();
+    </script>
+</body>
+</html>
