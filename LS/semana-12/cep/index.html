@@ -1,82 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
 </head>
 <body>
-
-    <div class="container d-flex align-items-center justify-content-center mt-5">
-        <div class="card text-dark bg-light mb-3 text-center" style="max-width: 18rem;">
-            <div class="card-header text-center">
-                <h5>Address</h5>
-            </div>
-            <div class="card-body text-center">
-                <form>
-                    <div class="mb-3">
-                        <input type="text" id="cep" placeholder="Cep" mb-3>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" id="rua" placeholder="Rua" mb-3>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" id="numero" placeholder="Número" mb-3>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <input type="text" id="bairro" placeholder="Bairro" mb-3>
-                    </div>
-    
-                    <div class="mb-3">
-                        <input type="text" id="estado" placeholder="Estado" mb-3>
-                    </div>
-    
-                    <div class="mb-3">
-                        <input type="text" id="cidade" placeholder="Cidade">
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="container d-flex align-items-center justify-content-center mt-5">
+    <div class="card text-dark bg-light mb-3 text-center" style="max-width: 18rem;">
+      <div class="card-header text-center">
+        <h5>Address</h5>
+      </div>
+      <div class="card-body text-center">
+        <form>
+          <div class="mb-3">
+            <input type="text" id="cep" placeholder="Cep" mb-3>
+          </div>
+          <div class="mb-3">
+            <input type="text" id="rua" placeholder="Rua" mb-3>
+          </div>
+          <div class="mb-3">
+            <input type="text" id="numero" placeholder="Número" mb-3>
+          </div>  
+          <div class="mb-3">
+            <input type="text" id="bairro" placeholder="Bairro" mb-3>
+          </div>
+          <div class="mb-3">
+            <input type="text" id="estado" placeholder="Estado" mb-3>
+          </div>
+          <div class="mb-3">
+            <input type="text" id="cidade" placeholder="Cidade">
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
     
-    <script>
-        const cepInput = document.getElementById('cep');
-        const rua = document.getElementById('rua');
-        const numero = document.getElementById('numero');
-        const bairro = document.getElementById('bairro');
-        const estado = document.getElementById('estado');
-        const cidade = document.getElementById('cidade');
+  <script>
 
-        async function getCEP(cep) {
-            const url = `https://viacep.com.br/ws/${cep}/json/`;
+    const cepInput = document.getElementById('cep');
+    const rua = document.getElementById('rua');
+    const numero = document.getElementById('numero');
+    const bairro = document.getElementById('bairro');
+    const estado = document.getElementById('estado');
+    const cidade = document.getElementById('cidade');
 
-            const response = await fetch(url);
+    async function getCEP(cep) {
 
-            const result = await response.json();
+      const url = `https://viacep.com.br/ws/${cep}/json/`;
+      const response = await fetch(url);
+      const result = await response.json();
 
-            return result;
-        }
+      return result;
+
+    }
         
-        async function main() {
-            const cep = await getCEP(cepInput.value);
-            
-            rua.value = cep.logradouro;
-            numero.value = cep.complemento;
-            bairro.value = cep.bairro;
-            estado.value = cep.uf;
-            cidade.value = cep.localidade;
-
-        }
+    async function main() {
+      const cep = await getCEP(cepInput.value);
+      rua.value = cep.logradouro;
+      numero.value = cep.complemento;
+      bairro.value = cep.bairro;
+      estado.value = cep.uf;
+      cidade.value = cep.localidade;
+    }
         
-        cepInput.addEventListener("keypress", function(e) {
-            if (e.key === "Enter") {
+    cepInput.addEventListener("keypress", function(e) {
 
-                main();
-            }
-        });
+      if (e.key === "Enter") {
 
-    </script>
+        main();
+
+      }  
+    });
+
+  </script>
 </body>
 </html>
