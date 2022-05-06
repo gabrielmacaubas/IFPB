@@ -34,7 +34,7 @@ def p2():
 
         numero += 1 
         print('P2:', numero)
-        
+
         mutex.release()
 
         time.sleep(1)  # usado apenas para forcar trocar contexto entre threads e visualizar condicao de disputa
