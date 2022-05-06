@@ -13,6 +13,8 @@ function sumPromise(a, b) {
 }
 
 // Async & Await
-function sumAsync(a, b) {}
+async function sumAsync(a, b) {
+  const result = await sumPromise(a, b)
+}
 
 module.exports = { sum, sumPromise, sumAsync };
