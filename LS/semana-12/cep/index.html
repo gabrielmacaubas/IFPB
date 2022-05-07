@@ -58,11 +58,13 @@
         
     async function main() {
       const cep = await getCEP(cepInput.value);
+
       rua.value = cep.logradouro;
       numero.value = cep.complemento;
       bairro.value = cep.bairro;
       estado.value = cep.uf;
       cidade.value = cep.localidade;
+
     }
         
     cepInput.addEventListener("keypress", function(e) {
