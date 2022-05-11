@@ -1,51 +1,48 @@
-# Lendo-se os números
-number_1 = int(input("Digite o 1º número: "))
-number_2 = int(input("digite o 2º número: "))
-number_3 = int(input("digite o 3º número: "))
-number_4 = int(input("digite o 4º número: "))
+elementos = int(input("Quantidade de elementos: "))
+vetor = [None] * elementos
+vetorpython = []
+# elementos = 5
+# vetor = [None, None, None, None, None]
 
-# Cálculo da soma
-soma = number_1 + number_2 + number_3 + number_4
-media = int()
+# maneira python adicionar
+"""
+print("adicionando via python")
+for i in range(elementos):
+    vetorpython.append(int(input(f"Digite o elemento [{i}]: ")))
 
-# Cálculo da média
-if number_1 <= number_2 and number_1 <= number_3 and number_1 <= number_4:
-    soma -= number_1
-    media = soma / 3
+print(vetorpython)
+"""
 
-elif number_2 <= number_3 and number_2 <= number_1 and number_2 <= number_4:
-    soma -= number_2
-    media = soma / 3
+# maneira python remover
+"""
+for i in range(elementos):
+    vetorpython.pop()
 
-elif number_3 <= number_1 and number_3 <= number_2 and number_3 <= number_4:
-    soma -= number_3
-    media = soma / 3
+print("Vetor python eliminado: ", vetorpython)
+"""
 
-else:
-    soma -= number_4
-    media = soma / 3
+# maneira programação remover
+"""
+for i in range(elementos):
+    vetor[i] = None
 
-# Determinação do conceito
-conceito = str()
-aprovacao = "APROVADO"
+print("Vetor eliminado: ", vetor)
+"""
 
-print(media)
+# maneira programação adicionar
+for i in range(elementos):
+    vetor[i] = int(input(f"Digite o elemento [{i}]: "))
+    print("o índice", [i], "foi preenchido com", vetor[i])
+    print(vetor)
 
-if media >= 9:
-    conceito = "A"
+j = elementos - 1
 
-elif media >= 8:
-    conceito = "B"
+for i in range(elementos // 2):
+    temp = vetor[i]
+    vetor[i] = vetor[j]
+    vetor[j] = temp
+    j = j - 1
 
-elif media >= 6:
-    conceito = "C"
+print(vetor)
 
-elif media >= 4:
-    conceito = "D"
-    aprovacao = "REPROVADO"
-
-else:
-    conceito = "E"
-    aprovacao = "REPROVADO"
-
-print(media, conceito, aprovacao)
+# v = vetor[::-1]

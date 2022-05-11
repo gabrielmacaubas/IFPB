@@ -23,3 +23,4 @@ sumPromise(3, 3)
   .then((result) => console.log(result));
 
 // Async & Await
+sumAsync(4, 4);
