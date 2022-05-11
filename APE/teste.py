@@ -9,15 +9,15 @@ soma = number_1 + number_2 + number_3 + number_4
 media = int()
 
 # Cálculo da média
-if number_1 < number_2 and number_1 < number_3 and number_1 < number_4:
+if number_1 <= number_2 and number_1 <= number_3 and number_1 <= number_4:
     soma -= number_1
     media = soma / 3
 
-elif number_2 < number_3 and number_2 < number_1 and number_2 < number_4:
+elif number_2 <= number_3 and number_2 <= number_1 and number_2 <= number_4:
     soma -= number_2
     media = soma / 3
 
-elif number_3 < number_1 and number_3 < number_2 and number_3 < number_4:
+elif number_3 <= number_1 and number_3 <= number_2 and number_3 <= number_4:
     soma -= number_3
     media = soma / 3
 
