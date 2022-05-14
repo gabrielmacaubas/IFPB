@@ -1,6 +1,8 @@
 www.ifpb.edu.br
-www.ifpb.edu.br/ed
-www.ifpb.edu.br/rc
-www.ifpb.edu.br/ed/p1
-www.ifpb.edu.br/ed/p2
-www.ifpb.edu.br/rc/tsi
+www.ifpb.edu.br/tsi
+www.uol.com.br
+www.uol.com.br/esportes
+www.uol.com.br/politica
+www.ifpb.edu.br/tsi/p1
+www.ifpb.edu.br/rc/professores
+www.ifpb.edu.br/rc/alunos

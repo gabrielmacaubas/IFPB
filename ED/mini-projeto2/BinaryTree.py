@@ -65,22 +65,23 @@ class BinaryTree:
         '''Obtem a referência para o nó "root"'''
         return self.__root
 
-    def addLeft(self, target_key:int, data:int )->bool:
+    def addLeft(self, target_key, data )->bool:
         target = self.getNode(target_key)
        
         if target.leftChild is None:
             target.leftChild = Node(data)
 
-    def addRight(self, target_key:int, data:int )->bool:
+    def addRight(self, target_key, data )->bool:
         target = self.getNode(target_key)
 
         if target.rightChild is None:
             target.rightChild = Node(data)
         
-    def getNode(self, key:int ):
+    def getNode(self, key ):
+        #NO = NONE QUANDO O NO É IGUAL A RAIZ
         return self.__getNode(key, self.getRoot())
 
-    def __getNode(self, key:int, node:Node)->Node:
+    def __getNode(self, key, node:Node)->Node:
         if (node == None):
             return None # Nao encontrou a chave
 
