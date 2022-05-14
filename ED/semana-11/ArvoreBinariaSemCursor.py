@@ -63,13 +63,11 @@ class ArvoreBinaria:
 
     def addNoDireita(self, chave_no_alvo:int, dado_a_inserir:int )->bool:
         try:
-            
             alvo = self.getNode(chave_no_alvo)
 
             if alvo.dir is None:
                 alvo.dir = Node(dado_a_inserir)
                 self.__tamanho += 1
-        
         except AttributeError:
             raise NodeException(f"O nó {chave_no_alvo} não pertence a árvore.")
 
@@ -109,7 +107,7 @@ class ArvoreBinaria:
 
 if __name__ == '__main__':
     try:
-            
+
         arv = ArvoreBinaria(2)
         print('Criada a árvore')
         arv.addNoEsquerda(4, 7)
