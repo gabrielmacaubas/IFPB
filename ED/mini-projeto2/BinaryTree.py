@@ -78,7 +78,10 @@ class BinaryTree:
             target.rightChild = Node(data)
         
     def getNode(self, key ):
-        #NO = NONE QUANDO O NO É IGUAL A RAIZ
+        root_str = self.getRoot().data.strip()
+        if key == root_str:
+            return self.getRoot()
+        
         return self.__getNode(key, self.getRoot())
 
     def __getNode(self, key, node:Node)->Node:
@@ -149,6 +152,8 @@ class BinaryTree:
         self.__postorder(node.leftChild)
         self.__postorder(node.rightChild)
         print(f'{node.data} ',end='')
+    
+    #def viewtree()
 
     def deleteTree(self):
         '''Elimina todos os nós da árvore'''
