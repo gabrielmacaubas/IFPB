@@ -16,6 +16,7 @@ matriz_b = [[None] * o for i in range(o)]
 
 print("Matriz A")
 
+# criação da matriz A
 for l in range(o):
     for c in range(o):
         matriz_a[l][c] = random.randint(1, 30)
@@ -26,18 +27,22 @@ for l in range(o):
 
 print("\nMatriz B")
 
-cont = int()
+# criação da matriz B
 for l in range(o):
     for c in range(o):
+        matriz_b[l][c] = matriz_a[l][c] + (c + 1)
+
+# remoção das diagonais
+for l in range(o):
+    for c in range(o):
+        # remoção da diagonal principal
         if l == c:
             matriz_b[l][c] = 0
+    
+    # remoção da diagonal secundária
+    matriz_b[l][(o - 1) - l] = 0
 
-        else:
-            matriz_b[l][c] = matriz_a[l][c]
-
-for i in range(o):
-     matriz_b[i][(o - 1) - i] = 0
-
+# impressão
 for l in matriz_b:
     for c in l:
         print(f"{c:3}", end="")
