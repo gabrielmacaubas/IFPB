@@ -3,30 +3,42 @@ from BinaryTree import BinaryTree
 
 arvores = {}
 
-
+# CARGA INICIAL
 with open('db.txt', 'r', encoding='utf-8') as arquivo:
     db = arquivo.readlines()
     
     for line in db:
-        domain = line.strip("\n")
+        url = line.strip("\n").rsplit('/')
+        domain = url[0]
+        
         if domain not in arvores:
 
-            arvores[domain] = BinaryTree(line)
+            arvores[domain] = BinaryTree(line.strip("\n"))
+
+        else:
+            target = url[-2]
+            new_data = url[-1]
+
+            if arvores[domain].getNode(target).hasLeftChild():
+                arvores[domain].addRight(target, new_data)
+                
+            else:
+                arvores[domain].addLeft(target, new_data)
 
 while True:
-    write = input(">>>").lower().split()
-    command = write[0]
-    url = write[1]
-    tokens = url.rsplit('/', 2)
-    domain = tokens[0]
+    tokens = input(">>>").lower().split()
+    command = tokens[0]
+    url = tokens[1]
+    line = url.rsplit('/')
+    domain = line[0]
 
     if command == "add":
         if domain not in arvores:
-            arvores[domain] = BinaryTree(command[1])
+            arvores[domain] = BinaryTree(url)
         
         else:
-            target = tokens[-2]
-            new_data = tokens[-1]
+            target = line[-2]
+            new_data = line[-1]
 
             if arvores[domain].getNode(target).hasLeftChild():
                 arvores[domain].addRight(target, new_data)
@@ -35,7 +47,7 @@ while True:
                 arvores[domain].addLeft(target, new_data)
 
     elif command == "viewtree":
-        arvores[domain].preorderTraversal()
+        arvores[domain].viewtree()
 
 """
         www.ifpb.edu.br

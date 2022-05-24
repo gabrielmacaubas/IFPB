@@ -153,8 +153,22 @@ class BinaryTree:
         self.__postorder(node.rightChild)
         print(f'{node.data} ',end='')
     
-    #def viewtree()
+    def viewtree(self):
+        ancestrais = []
+        self.__viewtree(self.__root, ancestrais)
+    
+    def __viewtree(self, node, ancestrais):
+        if( node == None):
+            return
 
+        ancestrais.append(node.data)
+        for i in ancestrais:
+            print(f"{i}/", end="")
+        print()
+
+        self.__viewtree(node.leftChild, ancestrais)
+        self.__viewtree(node.rightChild, ancestrais)
+        ancestrais.pop()
     def deleteTree(self):
         '''Elimina todos os nós da árvore'''
         # garbage collector fará o trabalho de eliminação dos nós
