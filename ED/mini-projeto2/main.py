@@ -49,6 +49,8 @@ while True:
     elif command == "viewtree":
         arvores[domain].viewtree()
 
+
+        
 """
         www.ifpb.edu.br
 

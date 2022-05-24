@@ -155,6 +155,7 @@ class BinaryTree:
     
     def viewtree(self):
         ancestrais = []
+        
         self.__viewtree(self.__root, ancestrais)
     
     def __viewtree(self, node, ancestrais):
@@ -162,13 +163,17 @@ class BinaryTree:
             return
 
         ancestrais.append(node.data)
+
         for i in ancestrais:
             print(f"{i}/", end="")
+
         print()
 
         self.__viewtree(node.leftChild, ancestrais)
         self.__viewtree(node.rightChild, ancestrais)
+
         ancestrais.pop()
+
     def deleteTree(self):
         '''Elimina todos os nós da árvore'''
         # garbage collector fará o trabalho de eliminação dos nós
