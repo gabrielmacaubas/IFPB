@@ -173,7 +173,24 @@ class BinaryTree:
         self.__viewtree(node.rightChild, ancestrais)
 
         ancestrais.pop()
+    
+    def match(self, url):
+        ancestrais = []
+        return self.__match(self.__root, url, ancestrais)
+    
+    def __match(self, node, url, ancestrais):
+        if( node == None):
+            return True
 
+        ancestrais.append()
+    
+        if ancestrais == url:
+            self.__match(node.leftChild, url, ancestrais)
+            self.__match(node.rightChild, url, ancestrais)
+            
+        else:
+            return False
+        
     def deleteTree(self):
         '''Elimina todos os nós da árvore'''
         # garbage collector fará o trabalho de eliminação dos nós
