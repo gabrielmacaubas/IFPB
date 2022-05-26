@@ -1,48 +1,38 @@
-elementos = int(input("Quantidade de elementos: "))
-vetor = [None] * elementos
-vetorpython = []
-# elementos = 5
-# vetor = [None, None, None, None, None]
+linhas = 10
+colunas = 9
+matriz = [[0] * colunas for i in range(linhas)]
 
-# maneira python adicionar
+print("Informe o local de cada acidente\nPara encerrar, digite 0 para a Av.")
+
+while True:
+    avenida = int(input("\nAv. (1 a 10): "))
+    if avenida == 0:
+        break
+    rua = int(input("Rua (30 a 38): "))
+
+    matriz[avenida-1][rua-30] += 1
+
+print("\nMAPA DOS ACIDENTES")
+print("\nRua/Av.  30  31  32  33  34  35  36  37  38")
+
+for l in range(linhas):
+    print(f"{l+1:^7}", end="")
+    for c in range(colunas):
+        if matriz[l][c] == 0:
+            print(f"{'-':>4}", end="")
+
+        else:
+            print(f"{matriz[l][c]:>4}", end="")
+
+    print()
 """
-print("adicionando via python")
-for i in range(elementos):
-    vetorpython.append(int(input(f"Digite o elemento [{i}]: ")))
+1 2 3
+4 5 6
 
-print(vetorpython)
+7 8 9
+10 11 12
+
+x x x
+x x x
+
 """
-
-# maneira python remover
-"""
-for i in range(elementos):
-    vetorpython.pop()
-
-print("Vetor python eliminado: ", vetorpython)
-"""
-
-# maneira programação remover
-"""
-for i in range(elementos):
-    vetor[i] = None
-
-print("Vetor eliminado: ", vetor)
-"""
-
-# maneira programação adicionar
-for i in range(elementos):
-    vetor[i] = int(input(f"Digite o elemento [{i}]: "))
-    print("o índice", [i], "foi preenchido com", vetor[i])
-    print(vetor)
-
-j = elementos - 1
-
-for i in range(elementos // 2):
-    temp = vetor[i]
-    vetor[i] = vetor[j]
-    vetor[j] = temp
-    j = j - 1
-
-print(vetor)
-
-# v = vetor[::-1]
