@@ -65,17 +65,13 @@ class BinaryTree:
         '''Obtem a referência para o nó "root"'''
         return self.__root
 
-    def addLeft(self, target_key, data )->bool:
-        target = self.getNode(target_key)
-       
-        if target.leftChild is None:
-            target.leftChild = Node(data)
+    def addLeft(self, target_key, data ):   
+        if target_key.leftChild is None:
+            target_key.leftChild = Node(data)
 
-    def addRight(self, target_key, data )->bool:
-        target = self.getNode(target_key)
-
-        if target.rightChild is None:
-            target.rightChild = Node(data)
+    def addRight(self, target_key, data ):
+        if target_key.rightChild is None:
+            target_key.rightChild = Node(data)
         
     def getNode(self, key ):
         root_str = self.getRoot().data.strip()
@@ -174,74 +170,28 @@ class BinaryTree:
         self.__viewtree(node.rightChild, ancestrais)
 
         ancestrais.pop()
-    
 
-   
-    #primeiro metodo
-    """
     def match(self, url):
-        achou = False
         return self.__match(self.__root, url)
     
     def __match(self, node, url):
-        achou = False
-        if node is not None:
-            print(node.data)           
+        if node.data == url[0]:
+            url.pop(0)
             if len(url) == 0:
-                achou = True
-                print("chegou no len=0")
-                return achou
-
-            elif node.data == url[0]:
-                url.pop(0)
-                achou = self.__match(node.leftChild, url)
-                achou = self.__match(node.rightChild, url)
-                return achou
-    """
-
-    #segundo utilizando getnode
-    """
-    def match(self, url):
-        return self.__match(url, self.getRoot())
-    
-    def __match(self, url, node):
-        if len(url) > 0:
-            print(f"procurando o nó {node} a partir do nó {url[0]}")
-            existe = self.__getNode(url[0], node)
-        
-            if existe:
-                url.pop(0)
-                return True and self.__match(url, existe)
+                return node
             
-            return False
-    
-        return True
-    """
+            if node.hasLeftChild():
+                if node.leftChild.data == url[0]: 
+                    return self.__match(node.leftChild, url)
 
-    #terceiro utlizando search
-    def match(self, url):
-        no_anterior = None
-        return self.__match(url, no_anterior, self.getRoot())
-    
-    def __match(self, url, no_anterior, node):
-        if len(url) > 0:
-            if node is None:
-                return False
-
-            existe = self.__searchData(url[0], node)
-
-            if existe:
-                url.pop(0)
-
-                return True and self.__match(url, node, node.leftChild)
+            if node.hasRightChild():
+                if node.rightChild.data == url[0]:
+                    return self.__match(node.rightChild, url)
             
             else:
-                if no_anterior.rightChild is not node:
-                    return self.__match(url, no_anterior, no_anterior.rightChild)
-                
-                return False
-    
-        return True
+                return
+
+        return
 
     def deleteTree(self):
         '''Elimina todos os nós da árvore'''

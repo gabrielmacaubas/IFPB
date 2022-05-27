@@ -4,9 +4,7 @@ from BinaryTree import BinaryTree
 arvores = {}
 
 # CARGA INICIAL
-
-with open("db.txt", 'r', encoding='utf-8') as arquivo:
-    
+with open("db.txt", 'r', encoding='utf-8') as arquivo: 
     db = arquivo.readlines()
     
     for line in db:
@@ -18,17 +16,20 @@ with open("db.txt", 'r', encoding='utf-8') as arquivo:
             arvores[domain] = BinaryTree(line.strip("\n"))
 
         else:
-            target = url[-2]
+            target = url[:-1]
             new_data = url[-1]
+            match = arvores[domain].match(target)
 
-            if arvores[domain].getNode(target).hasLeftChild():
-                arvores[domain].addRight(target, new_data)
+            if match:
                 
-            else:
-                arvores[domain].addLeft(target, new_data)
+                if match.hasLeftChild():
+                    arvores[domain].addRight(match, new_data)
+                else:
+                    arvores[domain].addLeft(match, new_data)
 
 while True:
-    tokens = input(">>>").lower().split()
+    tokens = input("\n>>>").lower().split()
+    print()
     command = tokens[0]
 
     if command == "sair":
@@ -43,21 +44,16 @@ while True:
             arvores[domain] = BinaryTree(url)
         
         else:
-            target = line[-2]
+            target = line[:-1]
             new_data = line[-1]
-            
+            match = arvores[domain].match(target)
 
-            if arvores[domain].getNode(target).hasLeftChild():
-                arvores[domain].addRight(target, new_data)
-                
-            else:
-                arvores[domain].addLeft(target, new_data)
-            """
-            else:
-                for i in range(len(line)-1):
-                    sub_root = line[i+1]
-                    a = arvores[domain].getNode(sub_root)
-            """
+            if match:
+                if match.hasLeftChild():
+                    arvores[domain].addRight(match, new_data)
+
+                else:
+                    arvores[domain].addLeft(match, new_data)
 
     elif command == "viewtree":
         arvores[domain].viewtree()
@@ -69,7 +65,6 @@ while True:
         else: 
 
             match = arvores[domain].match(line)
-            print(match)
             if match:
                 print("\033[32m200 OK - Requisição bem-sucedida!\033[m")
             else:
@@ -77,7 +72,7 @@ while True:
     
 print("\n---Encerramento do programa---")    
 """
-        www.ifpb.edu.br                 url = [www.ifpb.edu.br, rc, p1, ed] 
+        www.ifpb.edu.br          url = [www.ifpb.edu.br, tsi] 
     tsi                     rc
 
 p1          p2           p1
