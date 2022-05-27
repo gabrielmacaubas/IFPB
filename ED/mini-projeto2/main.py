@@ -4,8 +4,8 @@ from BinaryTree import BinaryTree
 arvores = {}
 
 # CARGA INICIAL
-path = "z:\\20212370015\\Documents\\GitHub\\IFPB\\ED\\mini-projeto2\\"
-with open(path+"db.txt", 'r', encoding='utf-8') as arquivo:
+
+with open("db.txt", 'r', encoding='utf-8') as arquivo:
     
     db = arquivo.readlines()
     
@@ -30,6 +30,10 @@ with open(path+"db.txt", 'r', encoding='utf-8') as arquivo:
 while True:
     tokens = input(">>>").lower().split()
     command = tokens[0]
+
+    if command == "sair":
+        break
+
     url = tokens[1]
     line = url.rsplit('/')
     domain = line[0]
@@ -55,8 +59,6 @@ while True:
                     a = arvores[domain].getNode(sub_root)
             """
 
-            
-
     elif command == "viewtree":
         arvores[domain].viewtree()
     
@@ -65,16 +67,20 @@ while True:
             print(f"{domain} não é um endereço na árvore.")
             
         else: 
-            a = arvores[domain].match(line)
-            print(a)
 
-        
+            match = arvores[domain].match(line)
+            print(match)
+            if match:
+                print("\033[32m200 OK - Requisição bem-sucedida!\033[m")
+            else:
+                print("\033[31m400 Bad Request - Servidor não atendeu a requisição.\033[m")
+    
+print("\n---Encerramento do programa---")    
 """
-        www.ifpb.edu.br
+        www.ifpb.edu.br                 url = [www.ifpb.edu.br, rc, p1, ed] 
+    tsi                     rc
 
-    tsi                 rc
-
-p1      p2            p1
-            SO      ed
-        proj1   proj2
+p1          p2           p1
+        SO             ed
+    proj1   proj2
 """

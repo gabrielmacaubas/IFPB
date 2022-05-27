@@ -1,5 +1,13 @@
 www.ifpb.edu.br
-www.ifpb.edu.br/joaopessoa
+www.ifpb.edu.br/tsi
+www.ifpb.edu.br/tsi/p1
+www.ifpb.edu.br/tsi/p2
+www.ifpb.edu.br/tsi/p2/so
+www.ifpb.edu.br/tsi/p2/so/proj1
+www.ifpb.edu.br/tsi/p2/so/proj2
+www.ifpb.edu.br/rc
+www.ifpb.edu.br/rc/p1
+www.ifpb.edu.br/rc/p1/ed
 www.uol.com.br
 www.uol.com.br/bbb
 www.uol.com.br/bbb/participantes
