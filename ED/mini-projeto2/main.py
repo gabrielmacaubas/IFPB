@@ -1,6 +1,7 @@
 from BinaryTree import BinaryTree
+import pathlib
 
-
+path = pathlib.Path(__file__).parent.resolve()
 arvores = {}
 
 def add(url):
@@ -23,7 +24,8 @@ def add(url):
 
 
 # CARGA INICIAL
-with open("db.txt", 'r', encoding='utf-8') as arquivo: 
+
+with open(str(path)+'/db.txt', 'r', encoding='utf-8') as arquivo: 
     db = arquivo.readlines()
     
     for line in db:
