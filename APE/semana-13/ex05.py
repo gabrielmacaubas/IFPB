@@ -51,3 +51,4 @@ for a in range(alunos):
             alunos_adm += 1
 
 print(f"\nNúmero de alunos com média superior à média geral da turma: {alunos_adm}")
+print(matriz)
