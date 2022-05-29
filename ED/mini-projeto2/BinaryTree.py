@@ -1,6 +1,9 @@
 '''
 Classe para instanciação de nós que vão ficar na memória
 '''
+class TreeException(Exception):
+    def __init__(self, msg):
+        super().__init__(msg)
 
 class Node:
     def __init__(self,data:object):
@@ -149,8 +152,9 @@ class BinaryTree:
         self.__postorder(node.leftChild)
         self.__postorder(node.rightChild)
         print(f'{node.data} ',end='')
-    
+
     def viewtree(self):
+        '''Método utilizado para exibir toda árvore carregando também os ancestrais de cada nó'''
         ancestrais = []
         
         self.__viewtree(self.__root, ancestrais)
@@ -170,16 +174,20 @@ class BinaryTree:
         self.__viewtree(node.rightChild, ancestrais)
 
         ancestrais.pop()
-
+    
     def match(self, url):
-        return self.__match(self.__root, url)
+        '''Verificação para validar a existência de uma url na árvore'''
+        try:
+            return self.__match(self.__root, url)
+        except IndexError:
+            raise TreeException('URL inválida.')
     
     def __match(self, node, url):
         if node.data == url[0]:
             url.pop(0)
             if len(url) == 0:
                 return node
-            
+            #verifica se o nó é igual ao filho esquerdo ou direito antes de entrar na recursividade
             if node.hasLeftChild():
                 if node.leftChild.data == url[0]: 
                     return self.__match(node.leftChild, url)
