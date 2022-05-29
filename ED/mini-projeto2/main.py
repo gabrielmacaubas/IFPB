@@ -5,6 +5,7 @@ from BinaryTree import TreeException
 path = Path(__file__).parent.resolve()
 arvores = {}
 
+
 def add(url):
     '''Método para adicionar uma nova árvore ou um novo nó em uma árvore existente'''
     domain = url[0]
