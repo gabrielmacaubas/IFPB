@@ -1,8 +1,9 @@
+entrada = input('digite uma string: ')
+numero_rep = input('digite a quantidade de vezes que as vogais vão se repetir: ')
 
-for l in range(o):
-    for c in range(o):
+for letra in entrada:
+  if letra.lower() in 'aeiou':
+    print(letra * numero_rep) 
 
-        if l == c:
-            matriz[l][c] = append(matriz[l][c])
-
-    matriz[l][(o - 1) - l] = append(matriz[l][(o-1)-l])awdawdawawdawdaw
+  else:
+    print(letra)

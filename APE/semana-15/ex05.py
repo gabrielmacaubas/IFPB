@@ -16,9 +16,7 @@ Exemplo:
             BB
             A
 """
-print("Frase:")
-
-frase = str(input())
+frase = input("Entrada: ").upper()
 
 print("\nSaída")
 
