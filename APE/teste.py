@@ -39,78 +39,76 @@ Amostra de entrada
 14 R
 """
 
-# código calouro v1
-
-tamanho = str(input('Digite o total de testes: '))
-coelhos = 0
-ratos = 0
-sapos = 0
-contcoelhos = 0
-contratos = 0
-contsapos = 0
-animais = 0
-for i in range (len(tamanho)):
-  animais = str(input('Digite quantos animais e a letra inicial do animal (ex: 10 r): '))
-  if [i-1] == 'c':
-    contcoelhos += int(1)
-    animais += int(1)
-  if [i-1] == 's':
-    contsapos += int(1)
-    animais += int(1)
-  if [i-1] == 'r':
-    contratos += int(1)
-    animais += int(1)
-
-portcoelhos = animais / contcoelhos * 100
-porcratos = animais / contratos * 100
-porcsapos = animais / contsapos * 100
-
-print(f'porcentagem de coelhos: {protcoelhos:.2f}')
-print(f'porcentagem de ratos: {protratos:.2f}')
-print(f'porcentagem de sapos: {protsapos:.2f}')
-print(f'Total de animais: {animais}')
-
 # código calouro v2
+"""
 
-tamanho = int(input('Digite o total de testes: '))
-contcoelhos = 0
-contratos = 0
-contsapos = 0
-animais = 0
-for i in range (tamanho):
-  animais = str(input('Digite quantos animais e a letra inicial do animal (ex: 10 r): '))
-  if [i-1] == 'c':
-    contcoelhos += 1
-    animais += 1
-  if [i-1] == 's':
-    contsapos += 1
-    animais += 1
-  if [i-1] == 'r':
-    contratos += 1
-    animais += 1
-print(contratos)
-print(contcoelhos)
-print(contsapos)
-print(animais)
-
-porccoelhos = animais / contcoelhos * 100
-porcratos = animais / contratos * 100
-porcsapos = animais / contsapos * 100
-
-print(f'porcentagem de coelhos: {porccoelhos:.2f}')
-print(f'porcentagem de ratos: {porcratos:.2f}')
-print(f'porcentagem de sapos: {porcsapos:.2f}')
-print(f'Total de animais: {animais}')
+"""
 
 # meu código
 
-# duvida calouro
+#mudanças de nomes de variáveis
+experimentos = int(input('Digite o total de testes: '))
+cont_coelhos = 0
+cont_ratos = 0
+cont_sapos = 0
+animais_totais = 0
+
+for i in range (experimentos):
+
+    # adição de while true para permitir valores apenas entre 1 e 15
+    while True:
+        # separar a partir de split com parâmetro vazio para dividir a informação capturada pelo usuário 
+        tokens = str(input('Digite quantos animais e a letra inicial do animal (ex: 10 r): ')).upper().split()
+        # quantidade de animais é o penúltimo índice   
+        quantidade_animal = int(tokens[-2])
+        
+        if 1 <= quantidade_animal <= 15:
+            # enquanto o tipo do animal é o último índice
+            animal = tokens[-1]
+
+            break
+        
+        print("Digite uma quantidade válida.")
+
+    if animal == 'C':
+      # a soma é feita baseado na quantidade de animais, então o  '+=' soma as quantidades, não apenas 1.
+        cont_coelhos += quantidade_animal
+        animais_totais += quantidade_animal
+    
+    # mudança de if para elif
+    elif animal == 'S':
+        cont_sapos += quantidade_animal
+        animais_totais += quantidade_animal
+
+    # mudança de if para elif
+    elif animal == 'R':
+        cont_ratos += quantidade_animal
+        animais_totais += quantidade_animal
+    
+# cálculo da porcentagem consertado
+porc_coelhos = (cont_coelhos * 100)  / animais_totais
+porc_ratos = (cont_ratos * 100) / animais_totais 
+porc_sapos = (cont_sapos * 100) / animais_totais
+
+# adição da exibição da quantidade
+print(f'\nQuantidade de coelhos: {cont_coelhos} \nPorcentagem: {porc_coelhos:.2f}')
+print(f'Quantidade de ratos: {cont_ratos} \nPorcentagem: {porc_ratos:.2f}')
+print(f'Quantidade de sapos: {cont_sapos} \nPorcentagem de sapos: {porc_sapos:.2f}')
+print(f'Total de animais: {animais_totais}')
+
+# dúvida calouro
 
 """
-Minha dúvida é se tem como uma mesma variável receber números e letras e como eu faria para separar e calcular depois
+Minha dúvida é se tem como uma mesma variável receber 
+números e letras e como eu faria para separar e calcular 
+depois
 """
 
 # resposta da duvida
 
 """
+Há sim, como feito no código acima. A entrada dos dados é 
+transformada numa lista, onde um índice será a quantidade 
+de animais (inteiro), e o outro será o tipo do animal (str). 
+A separação é feita a partir da manipulação de strings, utilizando o split. Baseia-se no índice para calcular as porcentagens e quantidades.
 """
