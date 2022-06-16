@@ -234,3 +234,4 @@ if __name__ == "__main__":
     except Exception as e:
         print('Classe: ', e.__class__.__name__)
         print('Nossos engenheiros vao analisar esse problema')
+
