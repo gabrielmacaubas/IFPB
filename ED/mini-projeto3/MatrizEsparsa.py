@@ -28,10 +28,12 @@ class MatrizEsparsa:
         self.__matriz = [ [ None for y in range( colunas ) ] 
              for x in range( linhas ) ]
         self.__passageiros = int()
-    
+        self.__linhas = len(self.__matriz)
+        self.__colunas = len(self.__matriz[0])
+
     def tamanho(self)->int:
         '''Retorna a quantidade de células da matriz'''
-        return len(self.__matriz) * len(self.__matriz[0])
+        return self.__linhas * self.__colunas
 
     def estaVazia(self)->bool:
         return self.__passageiros == 0
@@ -46,79 +48,125 @@ class MatrizEsparsa:
             raise MatrizEsparsaException('Não há assento disponível.')
         
         else:
-            for l in range(len(self.__matriz)):
-                for c in range(len(self.__matriz[0])):
-                    return (c * len(self.__matriz) + l) + 1
+            for l in self.__linhas:
+                for c in range(self.__colunas):
+                    return self.numero_poltrona(l, c, self.__linhas)
 
     def pesquisar(self, numero_poltrona:int)->Passageiro:
         '''Retorna os dados do passageiro alocado em um
            determinado assento'''
-        l = (numero_poltrona-1) % len(self.__matriz)
-        c = (numero_poltrona-1) // len(self.__matriz)
+        (l, c) = self.index_poltrona(numero_poltrona, self.__linhas)
 
         return self.__matriz[l][c]
 
     def pesquisaPassageiro(self, nome:str )->int:
         '''Retorna o número da poltrona em que um determinado
            passageiro está ocupando'''
-        pass
+        if self.estaVazia():
+            raise MatrizEsparsaException('Este ônibus está vazio.')
+
+        else:
+            for l in range(self.__linhas):
+                for c in range(self.__colunas):
+                    if self.__matriz[l][c]:
+                        if self.__matriz[l][c].nome.lower() == nome.lower():
+                            return self.numero_poltrona(l, c, self.__linhas)
+
+            return False
 
     def trocarPoltrona(self, poltrona_atual:int, nova_poltrona:int)->bool:
-        pass
+        (l, c) = self.index_poltrona(poltrona_atual, self.__linhas)
+        (nl, nc) = self.index_poltrona(nova_poltrona, self.__linhas)
+        
+        if self.__matriz[nl][nc] is None:
+            temp = self.__matriz[l][c]
+            self.__matriz[l][c] = None
+            self.__matriz[nl][nc] = temp
+
+            return True
+
+        raise MatrizEsparsaException("Este local já está ocupado.")
 
     def adicionar(self, passageiro: Passageiro, numero_poltrona:int)->bool:
         '''Retorna True se a inserção foi feita com sucesso, ou 
            False caso contrário'''
         if self.pesquisar(numero_poltrona) is None:
-            l = (numero_poltrona-1) % len(self.__matriz)
-            c = (numero_poltrona-1) // len(self.__matriz)
+            (l, c) = self.index_poltrona(numero_poltrona, self.__linhas)
 
             self.__matriz[l][c] = passageiro
+            self.__passageiros += 1
 
     def remover(self, numero_poltrona:int)->Passageiro:
-        pass
+        (l, c) = self.index_poltrona(numero_poltrona, self.__linhas)
+        self.__matriz[l][c] = None
 
     def esvaziar(self):
         '''Esvazia a matriz esparsa'''
-        pass
+        self.__matriz = [ [ None for y in range( self.__colunas ) ] 
+             for x in range( self.__linhas ) ]
 
     def mostrarAssentos(self):
         '''Mostra o status de ocupacao de todos os assentos'''
-        pass
+        print(self.__str__())
 
     def __str__(self):
         s = ''
         i = 0
         temp = 1
-        for j in range(len(self.__matriz[0])):
-            s += f'   {temp:>3}'
-            temp += len(self.__matriz)
+
+        for j in range(self.__colunas):
+            s += f'   {temp:^3}'
+            temp += self.__linhas
             
         s += '\n'
-        for l in self.__matriz:
+
+        for l in range(self.__linhas):
             i += 1
             s += f'{i}-'
-            for c in l:
-                if c is None:
-                    s += '[   ] '
-                else:
-                    s += f'[{c.nome[:3].capitalize()}] '
-            s+= '\n'
-        temp = len(self.__matriz)
 
-        for j in range(len(self.__matriz[0])):
-            s += f'   {temp:>3}'
-            temp += len(self.__matriz)
+            for c in range(self.__colunas):
+                if self.__matriz[l][c] is None:
+                    s += '[   ] '
+
+                else:
+                    s += f'[{self.__matriz[l][c].nome[:3].capitalize()}] '
+
+            s+= '\n'
+
+        temp = self.__linhas
+
+        for j in range(self.__colunas):
+            s += f'   {temp:^3}'
+            temp += self.__linhas
 
         s += f'\n{self.__id}, {self.tamanho()} assentos.'
-        return s
 
+        return s
+    
+    @classmethod
+    def numero_poltrona(cls, linha:int, coluna:int, linhas:int)->int:
+        return (coluna * linhas + linha) + 1
+    
+    @classmethod
+    def index_poltrona(cls, poltrona:int, linhas:int)->int:
+        l = (poltrona-1) % linhas
+        c = (poltrona-1) // linhas
+
+        return l, c
 
 if __name__ == '__main__':
-    me = MatrizEsparsa('JPA-CG',4,12)
+    me = MatrizEsparsa('JPA-CG',4,3)
     print(me)
     me.adicionar(Passageiro("samuel", "123"), 6)
     me.adicionar(Passageiro("madu", "456"), 7)
     me.adicionar(Passageiro("gabriel", "789"), 8)
     print()
     print(me)
+    print(me.pesquisaPassageiro("alex"))
+    me.trocarPoltrona(6, 10)  
+    me.remover(8)
+    me.esvaziar()
+    try: 
+        me.mostrarAssentos()
+    except MatrizEsparsaException as mee:
+        print(mee)
