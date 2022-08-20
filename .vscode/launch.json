@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Eleicao",
+            "request": "launch",
+            "mainClass": "Eleicao",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Citacao",
+            "request": "launch",
+            "mainClass": "Citacao",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Megasena",
+            "request": "launch",
+            "mainClass": "Megasena",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
             "name": "Python: Arquivo Atual",
             "type": "python",
             "request": "launch",
