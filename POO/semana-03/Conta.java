@@ -20,10 +20,22 @@ public class Conta {
 		destino.creditar(valor);
 	}
 	
-	public boolean vazia() {
+	public boolean vazio() {
 		if(saldo == 0)
 			return true;
 		else
 			return false;
 	}
+
+    public Conta clonar() {
+        Conta clone = new Conta(numero, cpf);
+
+        clone.creditar(saldo);
+        
+        return clone;
+    }
+
+    public String toString() {
+        return String.format("%s, %s, %.0f", numero, cpf, saldo);
+    }
 }

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TesteAlunoFlex",
+            "request": "launch",
+            "mainClass": "TesteAlunoFlex",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch TesteConta",
+            "request": "launch",
+            "mainClass": "TesteConta",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
             "name": "Launch Eleicao",
             "request": "launch",
             "mainClass": "Eleicao",
