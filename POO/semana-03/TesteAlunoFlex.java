@@ -8,6 +8,7 @@ public class TesteAlunoFlex {
         System.out.println(a1);
         System.out.println(String.format("Média do aluno: %s", a1.calcularMedia()));
         
+        // Printa resultado
         System.out.println(a2);
     }
     
