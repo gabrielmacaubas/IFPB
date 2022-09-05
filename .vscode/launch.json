@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TesteElevadorInterativo",
+            "request": "launch",
+            "mainClass": "TesteElevadorInterativo",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch ElevadorTeste",
+            "request": "launch",
+            "mainClass": "ElevadorTeste",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
             "name": "Launch TesteAlunoFlex",
             "request": "launch",
             "mainClass": "TesteAlunoFlex",
