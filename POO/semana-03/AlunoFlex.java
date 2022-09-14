@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class AlunoFlex {
     String matricula;
 	String nome;
