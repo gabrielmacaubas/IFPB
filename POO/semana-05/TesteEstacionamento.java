@@ -1,17 +1,19 @@
 public class TesteEstacionamento {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Estacionamento e1 = new Estacionamento(10);
-        e1.entrar("SPFC", 10);
-        e1.transferir(10, 3);
+
+        /*
+        int[] vagasLivres = e1.consultarVagasLivres();
+        for(int vaga : vagasLivres) {
+            System.out.println(vaga);
+        }
+        */
+
+        e1.lerDados();
 
         String[] placas = e1.consultarGeral();
-
-        /* 
         for(String placa : placas) {
             System.out.println(placa);
         }
-*/
-
-        e1.consultarVagasLivres();
     }
 }
