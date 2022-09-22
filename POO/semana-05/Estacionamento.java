@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Estacionamento {
@@ -69,6 +71,22 @@ public class Estacionamento {
             
         }
         
+    }
+
+    public void gravarDados() throws Exception {
+        File file = new File("/home/macaubas/code/IFPB/POO/semana-05/placas.csv");
+
+        try {
+            FileWriter outputfile = new FileWriter(file, true);
+            outputfile.append("\n1;");
+            outputfile.append("abc");
+
+            outputfile.flush();
+            outputfile.close();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String[] consultarGeral() {

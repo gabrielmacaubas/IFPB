@@ -10,6 +10,7 @@ public class TesteEstacionamento {
         */
 
         e1.lerDados();
+        e1.gravarDados();
 
         String[] placas = e1.consultarGeral();
         for(String placa : placas) {
