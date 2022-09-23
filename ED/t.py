@@ -1,32 +1,53 @@
-"""
-while True:
-    print("a")
-    continuar = True
+class Node:
+    def __init__(self, valor):
+        self.valor = valor
+        self.prox = None
 
-    if continuar:
-        break
-"""
+class Pilha:
+    def __init__(self):
+        self.topo = None
+        self.tamanho = 0
+    
+    def empilhar(self, valor):
+        if self.topo is None:
+            self.topo = Node(valor)
+            self.tamanho += 1
 
-numero1 = 27
-numero2 = 0
+        else:         
+            novo_topo = Node(valor)
+            novo_topo.prox = self.topo
+            self.topo = novo_topo
+            self.tamanho += 1
 
-if numero1:
-    print("True")
-else:
-    print("False")
+            """
+            topo 2
+            topo 1
+            topo 0            
+                    topo -1
 
-if numero2:
-    print("True")
-else:
-    print("False")
+            topo -1
+            topo -2
+            """
+    
+    #def desempilhar(self):
+    
+    def exibir_pilha(self):
+        print(self.__str__())
+    
+    def __str__(self):
+        string = ""
+        topo_atual = self.topo
+        for i in range(self.tamanho):
+            string += str(topo_atual.valor)
+            topo_atual = topo_atual.prox
 
-"""
-while jogador1 > 5 and jogador2 > 5:
-    ganhador = input("Digite o ganhador")
-    if ganhador == "jogador1":
-        jogador1 += 1
-    else:
-        jogador2 += 1
+            
+        return string
 
-print("Fim do programa")
-"""
+
+if __name__ == "__main__":
+    p = Pilha()
+    p.empilhar(1)
+    p.empilhar(2)
+    p.empilhar(3)
+    p.exibir_pilha()
