@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestePilha",
+            "request": "launch",
+            "mainClass": "TestePilha",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
             "name": "Launch TesteEstacionamento",
             "request": "launch",
             "mainClass": "TesteEstacionamento",

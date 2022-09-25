@@ -5,8 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-class CustomException extends Exception
-{
+class CustomException extends Exception {
     public CustomException(String message)
     {
         super(message);
