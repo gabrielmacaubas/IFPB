@@ -1,0 +1,19 @@
+CREATE TABLE Socio
+(
+  id INT NOT NULL,
+  nome VARCHAR(30) NOT NULL,
+  cpf CHAR(11) NOT NULL,
+  fone VARCHAR(20) NULL,
+  CONSTRAINT PK_Socio PRIMARY KEY (id),
+  CONSTRAINT UK_Socio_cpf UNIQUE (cpf)
+)
+
+CREATE TABLE Dep
+(
+  num int NOT NULL,
+  socio INT NOT NULL,
+  CONSTRAINT PK_Dep PRIMARY KEY (num,socio),
+  CONSTRAINT FK_Dep_socio FOREIGN KEY (socio) REFERENCES Socio
+)
+
+SELECT * FROM Socio
