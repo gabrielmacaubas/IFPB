@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TesteEx04",
+            "request": "launch",
+            "mainClass": "TesteEx04",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch TesteEx03",
+            "request": "launch",
+            "mainClass": "TesteEx03",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch TesteEx02",
+            "request": "launch",
+            "mainClass": "TesteEx02",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Testeex02",
+            "request": "launch",
+            "mainClass": "Testeex02",
+            "projectName": "IFPB_b1dbd7b4"
+        },
+        {
+            "type": "java",
             "name": "Launch TesteCalculadora",
             "request": "launch",
             "mainClass": "TesteCalculadora",

@@ -1,4 +1,4 @@
-public class Teste {
+public class TesteEx02 {
 	public static void main(String[] args) {
 		Pai p = new Filho();
 		Filho f = new Neto();
