@@ -11,11 +11,13 @@
     <input type="text" id="fnome" name="fnome"><br>
     <label for="fidade">Idade: </label>
     <input type="text" id="fidade" name="fidade"><br>
-    <button id="submit" onclick="inserirAluno()">Inserir</button>
+    <button id="submit" onclick="controladorAluno.inserirAluno()">Inserir</button>
     <h1>Listagem de Alunos</h1>
     <p>Nome - Idade</p>
-    <script src="./modelo/aluno.js"></script>
-    <script src="./repositorio/repositorio.js"></script>
-    <script src="script.js"></script>
+    <script src="./js/model/aluno.js"></script>
+    <script src="./js/database/repositorio.js"></script>
+    <script src="./js/service/servico.js"></script>
+    <script src="./js/controller/controlador.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
