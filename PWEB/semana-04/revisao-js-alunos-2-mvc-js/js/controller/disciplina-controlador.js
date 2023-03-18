@@ -1,21 +1,23 @@
 class DisciplinaControlador {
     constructor() {
-        this.DisciplinaServico = new DisciplinaServico();
+        this.disciplinaServico = new DisciplinaServico();
     }
 
     inserir() {
         const nomeDisciplina = document.querySelector("#nome").value;
         const codigoDisciplina = Number(document.querySelector("#codigo").value);
-        const disciplina = this.DisciplinaServico.inserir(nomeAluno, idadeAluno);
+        const disciplina = this.disciplinaServico.inserir(codigoDisciplina, nomeDisciplina);
+
         if (disciplina) {
-            this.mostrarAlunoNoHTML(nomeDisciplina, codigoDisciplina);
+            this.mostrarDisciplinaNoHTML(nomeDisciplina, codigoDisciplina);
             alert('Disciplina inserida com sucesso!');
-        } else {
-            alert('Esse código já existe!')
+        } 
+        else {
+            alert('Código já existente não permitido!')
         }
     }
-        
-    mostrarAlunoNoHTML(nome, codigo) {
+
+    mostrarDisciplinaNoHTML(nome, codigo) {
         const elementoP = document.createElement("p");
         elementoP.textContent = `${nome} - ${codigo}`;
 
@@ -35,18 +37,4 @@ class DisciplinaControlador {
         this.disciplinaServico.remover(codigo);
     }
 
-} 
-
-//
-//
-//
-// for (let aluno of alunos) {
-//     // colocar no html nome - idade
-//     mostrarAlunoNoHTML(aluno.nome, aluno.idade);
-// }
-//
-// function inserirAluno() {
-// }
-//
-//
-
+}

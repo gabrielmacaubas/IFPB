@@ -36,17 +36,3 @@ class AlunoControlador {
     }
 
 }
-
-//
-//
-//
-// for (let aluno of alunos) {
-//     // colocar no html nome - idade
-//     mostrarAlunoNoHTML(aluno.nome, aluno.idade);
-// }
-//
-// function inserirAluno() {
-// }
-//
-//
-
