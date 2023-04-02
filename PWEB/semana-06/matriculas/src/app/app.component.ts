@@ -20,6 +20,4 @@ export class AppComponent {
     this.alunos.push(this.aluno);
     this.aluno = new Aluno();
   }
-
-
 }
