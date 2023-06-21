@@ -1,0 +1,157 @@
+# requisito 1
+
+[RF0001] - Como cliente, quero poder escolher entre diversos métodos de pagamento como: cartão de crédito/débito, paypal, boleto, carteira do SteamKeys e PIX.
+
+# historia 1
+
+Eduarda é cliente do sistema.
+
+Após selecionar a(s) key(s) desejada(s), Eduarda acessa a tela de pagamento.
+
+Ela percebe que existem 5 meios de pagamento.
+
+Ela clica na opção de pix e assim, recebe um QR code para realizar o pagamento.
+
+# requisito 2
+
+[RF0002] - Como cliente, gostaria de solicitar reembolso caso eu tenha algum tipo de problema com a key comprada. Para solicitar reembolso preciso ir na tela de meus pedidos [RF0016] e nela clicar na opção de reembolso no pedido desejado.
+
+# historia 2
+
+Eduarda obteve um erro ao tentar utilizar uma key comprada, por esse motivo ela decide pedir reembolso.
+
+Ela passa o mouse por cima do ícone da sua conta no canto superior da tela e verifica um botão de “Meus Pedidos”.
+
+Ela clica no botão e é direcionada para a tela que exibe os seus pedidos.
+
+Ela verifica que embaixo de cada pedido existe um botão de reembolso.
+
+Eduarda clica no botão de reembolso desejado e após selecionar o motivo, clica no botão de “Enviar Solicitação”, para assim aguardar um retorno do SteamKeys.
+
+# requisito 3
+
+[RF0003] - Como cliente, gostaria de me cadastrar na plataforma. Com o preenchimento das seguintes informações: Nome completo, email, nome de usuário, senha e confirmação de senha.
+
+# historia 3
+
+Eduarda deseja criar uma conta no sistema para que possa realizar pedidos.
+
+Para isso, ela pode clicar no ícone de conta no canto superior da tela e duas opções irão aparecer: Entrar e Cadastrar
+
+Eduarda não possui uma conta no sistema, por isso ela clica na opção de cadastrar que irá levá-la para uma tela de cadastro que é composta por um formulário com os seguintes campos: Nome completo, email, nome de usuário, senha e confirmação de senha.
+
+Após ela preencher os campos, ela clica no botão de “Confirmar Cadastro”, que caso não haja erros no formulário, exibirá um alerta de êxito na tela e Eduarda será direcionada para a página de Login.
+
+# requisito 4
+
+[RF0004] - Como cliente, gostaria de fazer login na plataforma. Preenchendo os seguintes campos: email e senha.
+
+# historia 4
+
+Eduarda já possui uma conta no sistema e deseja fazer login para realizar pedidos.
+
+Para isso, ela pode clicar no ícone de conta no canto superior da tela e duas opções irão aparecer: Entrar e Cadastrar
+
+Ela clica na opção de entrar que irá levá-la para uma tela de login que é composta por um formulário com os seguintes campos: email e senha.
+
+Após ela preencher os campos, ela clica no botão de “Entrar”, que caso não haja erros no formulário, exibirá um alerta de êxito na tela e Eduarda será direcionada para a página inicial.
+
+# requisito 5
+
+[RF0005] - Como cliente do sistema, desejo poder editar meu cadastro no SteamKeys, podendo alterar campos como email, nome de usuário e senha.
+
+# historia 5
+
+Eduarda deseja alterar o seu email cadastrado no sistema.
+
+Após realizar o login, ela clica no ícone de conta no canto superior da tela e duas opções irão aparecer: Meus Pedidos e Editar Cadastro.
+
+Ela clica na opção de editar cadastro que irá levá-la para uma tela de edição de cadastro que é composta por um formulário com os seguintes campos: Nome completo, email, nome de usuário, senha e confirmação de senha.
+
+Ela altera o campo de email e clica no botão de “Confirmar Edição”, que caso não haja erros no formulário, exibirá um alerta de êxito na tela e Eduarda será direcionada para a página inicial.
+
+# requisito 6
+
+[RF0006] - Como cliente desejo obter informações do jogo como: preço, lançamento, distribuidor, gênero, idioma, modo do jogo, os requisitos para o funcionamento do jogo, descrição, botão de ícone de carrinho se eu apertar no botão ocorrerá o evento descrito no [RF0007]
+
+# historia 6
+
+Eduarda deseja obter informações do jogo.
+
+Ela acessa a página inicial e clica em um dos jogos que estão sendo exibidos.
+
+Ela é direcionada para a página do jogo que contém as informações do jogo.
+
+# requisito 7
+
+[RF0007] - Como cliente quero adicionar algum item ao carrinho de compras. Para tanto, quando estiver na tela descrita no [RF0006], irei clicar no botão comprar, ou na lista de jogos, irei clicar no botão “ícone de carrinho” no card do jogo, então o carrinho de compras será atualizado com o novo item e o ícone de carrinho mostrará o número de itens do carrinho de compras.
+
+# historia 7
+
+Eduarda deseja adicionar um item ao carrinho de compras.
+
+Ela acessa a página inicial e clica em um dos jogos que estão sendo exibidos, e assim é direcionada para a página do jogo que contém suas informações.
+
+Ela clica no botão de comprar e é direcionada para a tela de carrinho de compras.
+
+# requisito 8
+
+[RF0008] - Como cliente, quero pesquisar jogos na plataforma, preenchendo letras do determinado jogo na barra de pesquisa, enquanto digito o sistema mostrará os jogos disponíveis com base no que vou digitando. Ao clicar em uma das opções será mostrado o que está descrito no [RF0006]. Ou se eu clicar na lupa de pesquisa o site me mostrar todos os jogos relacionados com o texto que pesquisei.
+
+# historia 8
+
+Eduarda deseja pesquisar um jogo na plataforma.
+
+Ela acessa a página inicial e clica na barra de pesquisa, após isso ela digita os caracteres do jogo que deseja pesquisar e pressiona enter.
+
+Ela é direcionada para a página de pesquisa que contém os jogos relacionados com o texto que ela pesquisou.
+
+# requisito 9
+
+[RF0009] - Como cliente, desejo finalizar minha compra. A tela de finalização de compra mostrará os itens da compra, o valor da compra, a escolha do método de pagamento como descrito no [RF0001], e um botão de "finalizar compra", que caso eu clique no botão, minhas compras serão finalizadas.
+
+# historia 9
+
+Eduarda deseja finalizar a sua compra.
+
+Ela clica no ícone de carrinho no canto superior da tela e é direcionada para a tela de carrinho de compras.
+
+Após passar pelas etapas de escolha de método de pagamento, ela é direcionada para a tela de finalização de compra.
+
+Ela verifica que na tela de finalização de compra, existe um botão de “Finalizar Compra” e após clicar no botão, ela recebe um alerta de êxito e é direcionada para a página de "Meus Pedidos".
+
+# requisito 10
+
+[RF0010] - Como cliente, desejo comprar um jogo. Sendo assim, clico no botão de carrinho e serei redirecionado para a tela de finalização de compra como descrito no [RF0009].
+
+# historia 10
+
+Eduarda deseja comprar um jogo.
+
+Ela acessa a página inicial e clica em um dos jogos que estão sendo exibidos, e assim é direcionada para a página do jogo que contém suas informações.
+
+Ela clica no botão de comprar e é direcionada para a tela de carrinho de compras.
+
+Após passar pelas etapas de escolha de método de pagamento, ela é direcionada para a tela de finalização de compra.
+
+Ela verifica que na tela de finalização de compra, existe um botão de “Finalizar Compra” e após clicar no botão, ela recebe um alerta de êxito e é direcionada para a página de "Meus Pedidos".
+
+# requisito 13
+
+[RF0013] - Como cliente, desejo filtrar por categorias, preço, publicadora, sistema operacional, mais relevantes, mais vendidos, mais avaliados, em promoção. Quando seleciono as filtragens desejadas, ocasionando o [RF0012].
+
+# historia 13
+
+Eduarda deseja filtrar os jogos por categorias.
+
+Ela acessa a página inicial e clica no botão de categorias, após isso ela seleciona a categoria desejada.
+
+Ela é direcionada para a página de categorias que contém os jogos relacionados com a categoria que ela selecionou.
+
+# requisito 14
+
+
+
+
+
+
